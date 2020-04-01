@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
     useEffect(() => {
@@ -9,6 +10,13 @@ export default function Profile() {
     
   return (
     <>
+    <h1>dev mode</h1><br/>
+    pages:<br/>
+ <Link to='/logon'>logon</Link><br/>
+ <Link to='/register'>register</Link><br/>
+ <Link to='/home'>home</Link><br/>
+ <Link to='/profile'>profile</Link><br/>
+ <Link to='/messagens'>messagens</Link><br/><br/>
  <p>variaveis user-data e match-data adicionadas ao localStorage</p>
     </>
   );

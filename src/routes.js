@@ -12,12 +12,12 @@ export default function Routes() {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/" exact component={Logon} />
+        <Route path="/" exact component={dev} />
         <Route path="/register" component={Register} />
         <Route path="/home" component={home} />
         <Route path="/profile" component={profile} />
         <Route path="/messagens" component={messagens} />
-        <Route path="/dev" component={dev} />
+        <Route path="/Logon" component={Logon} />
       </Switch>
     </HashRouter>
   )
