@@ -6,7 +6,7 @@
 # Students-match-frontend
 https://students-match.netlify.com/
 
-Esse projeto está precisando de designers de UI e UX expecialistas em css
+Esse projeto está precisando de designers de UI e UX especialistas em css
 
 ## Como contribuir
 
