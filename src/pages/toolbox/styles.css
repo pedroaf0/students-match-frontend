@@ -1,0 +1,24 @@
+#footer {
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    max-height: 50px;
+    align-items:flex-start ;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0px -1px 10px  #888888;
+
+  }
+  
+  #footer .buttons {
+    display: flex;
+    width: 37px;
+    height: 37px;
+    margin: 5px;
+    align-items:center ;
+    justify-content: center;
+  }
+  #footer > .buttons > svg {
+    font-size: 1.6em;
+  }
