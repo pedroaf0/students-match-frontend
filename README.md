@@ -1,10 +1,22 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c83afe42-af39-4bca-93cc-eada23562f47/deploy-status)](https://app.netlify.com/sites/students-match/deploys) 
-[![Heroku CI Status](https://img.shields.io/badge/heroku%20deploy-success-brightgreen)](https://students-match-backend.herokuapp.com/)
+
+ 
+<h1 align="center"><a href="https://students-match.netlify.com/#/logon">Students Match</a></h1><br>
+
+<p align="center">
+ 
+ 
+   <a href="https://app.netlify.com/sites/students-match/deploys">
+    <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/c83afe42-af39-4bca-93cc-eada23562f47/deploy-status">
+  </a>
+  
+  <a href="https://students-match-backend.herokuapp.com/">
+    <img alt="Heroku CI Status" src="https://img.shields.io/badge/heroku-success-brightgreen">
+  </a>
 
 
+</p>
 
-# Students-match-frontend
-https://students-match.netlify.com/
+
 
 Esse projeto está precisando de designers de UI e UX especialistas em css
 
