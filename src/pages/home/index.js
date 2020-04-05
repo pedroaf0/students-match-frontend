@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Toolbox from '../toolbox'
 import { FaHeart, FaHeartBroken, FaEllipsisV  } from 'react-icons/fa'
+import apiSrc from '../../services/ApiSource';
 
 
 import api from '../../services/api';
 
 import './styles.css';
-import avatar from '../../assets/avatar-1.png'
+
 
 export default function Profile() {
   const [matchs, setmatchs] = useState([]);
@@ -48,13 +49,13 @@ export default function Profile() {
       <div className="container">
       <div >
         {matchs.map(match => (
-          <div className="MatchContainer" key={match.id}>
+          <div className="MatchContainer" key={match.id}><br/>
           
-           <div className="inlineBlock"> <img className="m" src={avatar} alt="avatar"></img></div>
+           <div className="inlineBlock"> <img id="home" src={apiSrc.imgApi+'img/'+match.id} alt="avatar"></img></div>
            <div className="inlineBlock text">
            <span className="name"> <b>{match.name} - {match.por}</b></span><br/>
             {match.school} - {match.city}<br/>
-            <FaHeart size={12}/>  {match.area_fav}  |  <FaHeartBroken size={12}/>   {match.area_mal}<br/><br/>
+            <FaHeart size={12}/>  {match.area_fav}  |  <FaHeartBroken size={12}/>   {match.area_mal}
             </div>
 
            

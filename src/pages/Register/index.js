@@ -3,12 +3,14 @@ import {  useHistory } from 'react-router-dom';
 //import { FiArrowLeft } from 'react-icons/fi'
 
 import api from '../../services/api'
+import imgApi from '../../services/imgApi'
 
 import '../../bootstrap.min.css';
-
+import select from '../../assets/cam.png';
 import './styles.css';
 
 export default function Register() {
+  if(document.location.href !== "?#/register") document.location.href = "?#/register";
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [cell, setcell] = useState('');
@@ -18,6 +20,7 @@ export default function Register() {
   const [password, setpassword] = useState('');
   const [bio, setbio] = useState('');
   const [school, setschool] = useState('');
+  const [img, setimg] = useState('');
 
 
   const history = useHistory();
@@ -38,54 +41,73 @@ export default function Register() {
     try {
       const response = await api.post('user', data);
       localStorage.setItem('id', response.data.id);
+
+      const formData = new FormData();
+      formData.append('fileToUpload',img)
+      const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
+
+
+      await imgApi.post('upload.php?id='+response.data.id, formData, config);
       history.push('/home');
     } catch (err) {
       alert('Erro ao realizar cadastro.');
     }
   }
+  function handle(t){
+    document.getElementById('img').src = window.URL.createObjectURL(t.target.files[0])
+  }
 
   return (
     <div className="formsignin">
+      <center>
+        <label htmlFor="file"><img alt="" src={select} id="img"></img></label>
+        <input id="file" name="fileToUpload" type="file" onChange={e => {handle(e); setimg(e.target.files[0])}}/>
+      </center>
       
     <form>
-    <div class="form-group">
-          <input onChange={e => setName(e.target.value)} type="text" class="form-control" id="name" placeholder="Nome" required/>
+
+    <div className="form-group">
+          <input onChange={e => setName(e.target.value)} type="text" className="form-control" id="name" placeholder="Nome" required/>
     </div>
-    <div class="form-group">
-          <input onChange={e => setEmail(e.target.value)} type="text" class="form-control" id="email" value={email} placeholder="email" required/>
+    <div className="form-group">
+          <input onChange={e => setEmail(e.target.value)} type="text" className="form-control" id="email" value={email} placeholder="email" required/>
     </div>
-    <div class="form-group">
-          <input onChange={e => setschool(e.target.value)} type="text" class="form-control" id="school"  placeholder="Escola" required/>
+    <div className="form-group">
+          <input onChange={e => setschool(e.target.value)} type="text" className="form-control" id="school"  placeholder="Escola" required/>
     </div>
-    <div class="form-group">
-          <input onChange={e => setCity(e.target.value)} type="text" class="form-control" id="city"  placeholder="Cidade" required/>
+    <div className="form-group">
+          <input onChange={e => setCity(e.target.value)} type="text" className="form-control" id="city"  placeholder="Cidade" required/>
     </div>
-        <div class="form-group">
+        <div className="form-group">
             <label htmlFor="area_fav">Area com mais afinidade</label>
-            <select onChange={e => setarea_fav(e.target.value)} class="form-control" id="area_fav" required>
+            <select onChange={e => setarea_fav(e.target.value)} className="form-control" id="area_fav" required>
               <option>Exatas</option>
               <option>Humanas</option>
               <option>Linguagem</option>
               <option>Biologicas</option>
             </select>
           </div>
-        <div class="form-group">
+        <div className="form-group">
             <label htmlFor="area_mal">Area com menos afinidade</label>
-            <select onChange={e => setarea_mal(e.target.value)} class="form-control" id="area_mal" required>
+            <select onChange={e => setarea_mal(e.target.value)} className="form-control" id="area_mal" required>
               <option>Exatas</option>
               <option>Humanas</option>
               <option>Linguagem</option>
               <option>Biologicas</option>
             </select>
           </div>
-          <div class="form-group">
-          <input onChange={e => setcell(e.target.value)} type="number" class="form-control" id="cell"  placeholder="whatsapp/telegram" required/>
+          <div className="form-group">
+          <input onChange={e => setcell(e.target.value)} type="number" className="form-control" id="cell"  placeholder="whatsapp/telegram" required/>
           </div>
-          <div class="form-group">
-          <textarea onChange={e => setbio(e.target.value)} class="form-control" id="bio"  placeholder="Biografia" required/>
+          <div className="form-group">
+          <textarea onChange={e => setbio(e.target.value)} className="form-control" id="bio"  placeholder="Biografia" required/>
            </div>
-           <div class="form-group">
-          <input onChange={e => setpassword(e.target.value)} type="password" class="form-control" id="password"  placeholder="Senha" required/>
+           <div className="form-group">
+          <input onChange={e => setpassword(e.target.value)} type="password" className="form-control" id="password"  placeholder="Senha" required/>
     </div>
            <p id="err"></p>
            <button onClick={() => submit()} className="btn btn-lg btn-primary btn-block" >Criar</button>

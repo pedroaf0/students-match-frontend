@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Toolbox from '../toolbox'
-import {  FaPencilAlt,FaCopy } from 'react-icons/fa'
+import {  FaPencilAlt,FaCopy } from 'react-icons/fa';
+import apiSrc from '../../services/ApiSource';
 
 
 import api from '../../services/api';
 
 import './styles.css';
-import avatar from '../../assets/avatar-1.png'
 
 export default function Profile() {
   const [profile, setprofile] = useState([]);
@@ -41,7 +41,7 @@ export default function Profile() {
       <div >
         {profile.map(profile => (
           <div className="profile" key={profile.id}>
-          <img src={avatar} alt="avatar"></img><br/>
+          <img id="profile" src={apiSrc.imgApi+'img/'+profile.id} alt="avatar"></img><br/>
         <b>{profile.name}</b><br/>
           {profile.city} - {profile.school}<br/>
           <div>{profile.bio}</div>

@@ -1,0 +1,9 @@
+#file{
+display: none;
+}
+img#img{
+    border-radius: 50%;
+    border-color: rgba(34, 34, 34, 0.445);
+    border-style: solid;
+
+}
