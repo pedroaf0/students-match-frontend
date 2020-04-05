@@ -65,7 +65,7 @@ export default function Register() {
     <div className="formsignin">
       <center>
         <label htmlFor="file"><img alt="" src={select} id="img"></img></label>
-        <input id="file" name="fileToUpload" type="file" onChange={e => {handle(e); setimg(e.target.files[0])}}/>
+        <input accept="image/*" id="file" name="fileToUpload" type="file" onChange={e => {handle(e); setimg(e.target.files[0])}}/>
       </center>
       
     <form>
