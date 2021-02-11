@@ -8,7 +8,7 @@ if(DevMode){
 }else{
      src = {
         api: "https://students-match-backend.herokuapp.com/",
-        imgApi: "https://students-match-img-service.000webhostapp.com/"
+        imgApi: "https://students-match-img-service2.000webhostapp.com/"
     };
 }
 
